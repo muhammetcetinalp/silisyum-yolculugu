@@ -55,7 +55,7 @@ export default function JourneyTimeline() {
           }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         />
-        <div className="relative grid grid-cols-10 gap-1">
+        <div className="relative grid grid-cols-10 gap-0.5 sm:gap-1">
           {journeySteps.map((step) => {
             const StepIcon = iconMap[step.icon];
             const isActive = step.id === activeId;
@@ -68,7 +68,7 @@ export default function JourneyTimeline() {
                 aria-label={`Adım ${step.id}: ${step.title}`}
               >
                 <div
-                  className={`grid h-10 w-10 place-items-center rounded-full border-2 transition-all ${
+                  className={`grid h-7 w-7 sm:h-10 sm:w-10 place-items-center rounded-full border-2 transition-all ${
                     isActive
                       ? "border-circuit-500 bg-white shadow-lg shadow-circuit-500/30 scale-110"
                       : isPast
@@ -76,7 +76,7 @@ export default function JourneyTimeline() {
                       : "border-silicon-300 bg-sand-50 text-silicon-400 group-hover:border-silicon-500"
                   }`}
                 >
-                  <StepIcon className="h-4 w-4" />
+                  <StepIcon className="h-3 w-3 sm:h-4 sm:w-4" />
                 </div>
                 <div
                   className={`mt-2 hidden text-[10px] font-bold uppercase tracking-wider sm:block ${

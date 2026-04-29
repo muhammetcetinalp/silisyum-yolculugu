@@ -55,7 +55,7 @@ export default function HomePage() {
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-circuit-500" />
               Muhammet Çetinalp
             </div>
-            <h1 className="heading-display text-5xl leading-[1.02] sm:text-6xl lg:text-7xl">
+            <h1 className="heading-display text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
               Kumdan Bilgisayar{" "}
               <span className="gradient-text">Çipine</span> Yolculuk
             </h1>
