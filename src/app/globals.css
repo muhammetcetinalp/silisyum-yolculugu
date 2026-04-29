@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 250 247 240;
+  --foreground: 15 19 26;
+  --muted: 110 124 140;
+  --accent: 10 132 255;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(10, 132, 255, 0.25);
+  color: inherit;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(110, 124, 140, 0.4);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(110, 124, 140, 0.7);
+}
+
+/* Reusable utilities */
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/60 border border-silicon-200/60;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-silicon-900/60 border border-silicon-700/60;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-silicon-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-silicon-700 hover:shadow-lg hover:shadow-silicon-900/20 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-silicon-300 bg-white/70 px-6 py-3 text-sm font-medium text-silicon-700 transition hover:border-silicon-500 hover:bg-white;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-silicon-200 bg-white/80 px-3 py-1 text-xs font-medium text-silicon-600;
+  }
+
+  .heading-display {
+    @apply font-display font-bold tracking-tight text-silicon-900;
+  }
+
+  .text-muted {
+    color: rgb(var(--muted));
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-sand-500 via-circuit-500 to-silicon-700 bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply rounded-2xl border border-silicon-200 bg-white/80 p-6 shadow-sm transition hover:shadow-md;
+  }
+}
+
+/* SVG circuit trace animation */
+.circuit-trace {
+  stroke-dasharray: 6 4;
+  animation: trace 2s linear infinite;
+}
+@keyframes trace {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* Subtle floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
